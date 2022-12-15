@@ -1,21 +1,17 @@
 eval "$(conda shell.bash hook)"
 
+# git clone https://huggingface.co/runwayml/stable-diffusion-v1-5
 conda activate diffusers
 
-# Comment this out if you've already done it once:
-# huggingface-cli login
-
-# python heictojpg.py "nader"
-
 accelerate launch train_dreambooth.py \
-  --pretrained_model_name_or_path="stable-diffusion-v1-5"  \
-  --pretrained_vae_name_or_path="stable-diffusion-v1-5/vae" \
-  --instance_data_dir="nader" \
+  --pretrained_model_name_or_path="runwayml/stable-diffusion-v1-5"  \
+  --pretrained_vae_name_or_path="stabilityai/sd-vae-ft-mse" \
+  --instance_data_dir="./data/dog" \
   --class_data_dir="class_dir" \
   --output_dir="class-based-output" \
   --with_prior_preservation --prior_loss_weight=1.0 \
-  --instance_prompt="photo of sksxvs2 man" \
-  --class_prompt="photo of a man" \
+  --instance_prompt="adamsmith" \
+  --class_prompt="person" \
   --resolution=512 \
   --train_batch_size=1 \
   --gradient_accumulation_steps=2 --gradient_checkpointing \

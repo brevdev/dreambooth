@@ -9,3 +9,4 @@ pip install -U -r requirements.txt
 pip install pyheif
 pip install piexif
 pip install bitsandbytes
+sudo apt-get install git-lfs
