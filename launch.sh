@@ -5,7 +5,7 @@ conda activate diffusers
 python heictojpg.py "./data/dog"
 
 accelerate launch train_dreambooth.py \
-  --pretrained_model_name_or_path="CompVis/stable-diffusion-v1-4"  \
+  --pretrained_model_name_or_path="runwayml/stable-diffusion-v1-5"  \
   --instance_data_dir="./data/dog" \
   --output_dir="fine-tuned-model-output" \
   --instance_prompt="adamsmith" \
